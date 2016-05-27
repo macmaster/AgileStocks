@@ -26,7 +26,7 @@ import java.util.ArrayList;
  * @author ronny
  *
  */
-public class PortfolioTester {
+public class TestPortfolio {
 
 	Portfolio portfolio;
 	StockService stockService;
