@@ -1,19 +1,34 @@
 <html lang="en-US">
 	<head>
-		<title>Ronald Macmaster | RonnyMacmaster@gmail.com</title>
+		<title>Ronny's Stock Service</title>
 		<meta name="author" content="Ronald Macmaster">
 		<meta name="description" content="My personal Macmaster Homepage">
 		<meta name="keywords" content="Ronald, Macmaster, Ronny">
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="shortcut icon" type="image/jpg" href="./pics/mynimal.jpg" />
+		<!-- <link rel="shortcut icon" type="image/jpg" href="./pics/mynimal.jpg" /> -->
 	</head>
 	<body>
 		<h1>WELCOME VISITOR</h1>
 		<p>You have reached the Stock Service of Ronald Macmaster</p>
 		<img src="http://www.kizoa.com/img/e8nZC.gif">
 		<form id="login" action="stock" method="post">
-  			stocks:<br><input type="text" name="stocks"><br>
+			Stock Ticker:<br><input type="text" name="stock"><br>
+			<fieldset>
+				<legend>Request Values:</legend>
+					<legend>name:<input type="checkbox" name="querys" value="name">
+					volume:<input type="checkbox" name="querys" value="vol">
+					p/e ratio:<input type="checkbox" name="querys" value="pe"></legend>
+					
+					<legend>price:<input type="checkbox" name="querys" value="p">
+					ask:<input type="checkbox" name="querys" value="ask">
+					bid:<input type="checkbox" name="querys" value="bid"></legend>
+					
+					<legend>market cap:<input type="checkbox" name="querys" value="mc">
+					eps:<input type="checkbox" name="querys" value="eps">
+					ebitda:<input type="checkbox" name="querys" value="ebitda"><br></legend>
+			</fieldset>
 			<input type="submit" value="Submit">
+			<input type="submit" value="Submit All" onclick="return toggleAll();">
 		</form> 
 		<div id="page_footer">
 			<script src="script.js"></script>

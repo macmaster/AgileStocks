@@ -16,7 +16,7 @@ import javax.ws.rs.core.Application;
  * @author ronny
  *
  */
-@ApplicationPath("/")
+@ApplicationPath("/stock")
 public class StockApplication extends Application {
 
 	/**

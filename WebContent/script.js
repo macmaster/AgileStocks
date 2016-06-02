@@ -9,3 +9,11 @@
 function helloWorld(){
 	console.log("Hello World!");
 }
+
+function toggleAll(){
+	checkboxes = document.getElementsByName("querys");
+	for(var idx = 0; idx < checkboxes.length; idx++){
+		checkboxes[idx].checked = true;
+	}
+	
+}
