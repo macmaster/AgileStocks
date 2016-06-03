@@ -18,6 +18,8 @@ import java.util.Map;
 
 import javax.ws.rs.Produces;
 
+import stock.Stock;
+
 /**
  * Application Layer Class to handle the Stock Computations/fetching
  * @author ronny
@@ -94,5 +96,68 @@ public class StockBean {
 			}
 		}
 		return response;
+	}
+	
+	@Produces("application/json")
+	public Stock buildStockJSON(String ticker){
+		Stock stock = new Stock(ticker);
+		stock.setName(getStockValue(ticker, "n"));
+		stock.setAsk(getStockValue(ticker, "a"));
+		stock.setBid(getStockValue(ticker, "b"));
+		stock.setPrice(getStockValue(ticker, "l1"));
+		stock.setMarketCap(getStockValue(ticker, "j1"));
+		stock.setEarningsPerShare(getStockValue(ticker, "e"));
+		stock.setEbitda(getStockValue(ticker, "j4"));
+		stock.setVolume(getStockValue(ticker, "v"));
+		stock.setPe(getStockValue(ticker, "r"));
+		return stock;
+	}
+	
+	@Produces("application/json")
+	public Stock processQueriesJSON(String ticker, List<String> querys){
+		Stock stock = new Stock(ticker);
+		for(String query : querys){
+			try{
+				String queryFlag = queryMap.get(query).right.toLowerCase();
+				if(queryFlag.equals("n")){ // name
+					stock.setName(getStockValue(ticker, "n"));
+				}
+				else if(queryFlag.equals("a")){ // ask
+					stock.setAsk(getStockValue(ticker, "a"));
+				}
+				else if(queryFlag.equals("b")){ // bid
+					stock.setBid(getStockValue(ticker, "b"));
+				}
+				else if(queryFlag.equals("l1")){ // price
+					stock.setPrice(getStockValue(ticker, "l1"));
+				}
+				else if(queryFlag.equals("j1")){ // market cap
+					stock.setMarketCap(getStockValue(ticker, "j1"));
+				}
+				else if(queryFlag.equals("e")){ // earnings per share
+					stock.setEarningsPerShare(getStockValue(ticker, "e"));
+				}
+				else if(queryFlag.equals("j4")){ // ebitda
+					stock.setEbitda(getStockValue(ticker, "j4"));
+				}
+				else if(queryFlag.equals("v")){ // volume
+					stock.setVolume(getStockValue(ticker, "v"));
+				}
+				else if(queryFlag.equals("r")){ // pe ratio
+					stock.setPe(getStockValue(ticker, "r"));
+				}
+				else if(queryFlag.equals("ex")){
+					stock.setExchange(getStockValue(ticker, "ex"));
+				}
+				else if(queryFlag.equals("i")){
+					stock.setInfo(getStockValue(ticker, "i"));
+				}
+				
+			}
+			catch(Exception e) {
+				System.err.println(query + " is an invalid query");
+			}
+		}
+		return stock;
 	}
 }

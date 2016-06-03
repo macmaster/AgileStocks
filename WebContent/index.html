@@ -12,7 +12,8 @@
 		<p>You have reached the Stock Service of Ronald Macmaster</p>
 		<img src="http://www.kizoa.com/img/e8nZC.gif">
 		<form id="login" action="stock" method="post">
-			Stock Ticker:<br><input type="text" name="stock"><br>
+			<legend>Stock Ticker:<input type="text" id="stock" name="stock">
+			<input type="hidden" id="save" name="save" value="false"></legend>
 			<fieldset>
 				<legend>Request Values:</legend>
 					<legend>name:<input type="checkbox" name="querys" value="name">
@@ -27,8 +28,8 @@
 					eps:<input type="checkbox" name="querys" value="eps">
 					ebitda:<input type="checkbox" name="querys" value="ebitda"><br></legend>
 			</fieldset>
-			<input type="submit" value="Submit">
-			<input type="submit" value="Submit All" onclick="return toggleAll();">
+			<input type="submit" value="Submit" onclick="regularSubmit();">
+			<input type="submit" value="Submit All" onclick="toggleAll();">
 		</form> 
 		<div id="page_footer">
 			<script src="script.js"></script>

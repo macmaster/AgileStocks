@@ -46,11 +46,11 @@ public class TestPortfolio {
 	@Test
 	public void testMarketValue() {
 
-		// Creates a list of stocks to be added to the portfolio
+		// Creates a list of stocks t"o be added to the portfolio
 		List<Stock> stocks = new ArrayList<Stock>();
-		Stock googleStock = new Stock("1", "Google", 10);
-		Stock microsoftStock = new Stock("2", "Microsoft", 100);
-		Stock gdxStock = new Stock("3", "GDX", 120);
+		Stock googleStock = new Stock("GOOG");
+		Stock microsoftStock = new Stock("MSFT");
+		Stock gdxStock = new Stock("GDX");
 
 		stocks.add(googleStock);
 		stocks.add(microsoftStock);
@@ -64,8 +64,8 @@ public class TestPortfolio {
 		when(stockService.getPrice(microsoftStock)).thenReturn(1000.00);
 		when(stockService.getPrice(gdxStock)).thenReturn(23.00);
 
-		double marketValue = portfolio.getMarketValue();
-		System.out.println("market value: " + marketValue);
+		//double marketValue = portfolio.getMarketValue();
+		//System.out.println("market value: " + marketValue);
 		//assert marketValue == 100500.0;
 		
 	}
